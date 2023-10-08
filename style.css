@@ -1,0 +1,101 @@
+*, ::after, ::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    padding: clamp(10px, 5vw, 50px) clamp(10px, 5vw, 50px);
+    min-height: 100vh;
+    background: linear-gradient(90deg,rgb(51, 45, 83),rgb(44, 102, 124));
+    font-family: Lato system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.read-only{
+    visibility: hidden;
+    position: absolute;
+}
+.imc_container{
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+    background: whitesmoke;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgb(0, 0, 0);
+    max-width: 800px;
+    margin: 0 auto;
+}
+.title{
+    text-align: center;
+    font-weight: 400;
+}
+.title span{
+    font-weight: 700;
+}
+.imc-group{
+    display: flex;
+    flex-flow: column;
+}
+.imc-group input{
+margin: 0 20px;
+height: 50px;
+border: none;
+border-radius: 5px;
+box-shadow: 2px 2px 2px rgb(73, 73, 73);
+padding: 10px;
+}
+.imc-group label{
+    margin: 0 20px;
+    padding: 5px;
+}
+.btn{
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px rgb(73, 73, 73);
+    width: 150px;;
+    height: 50px;
+    display: block;
+    margin: 30px auto;
+    margin-bottom: 0;
+    background: rgba(255, 166, 0, 0.651);
+}
+.btn:hover{
+    background: rgb(255, 166, 0);
+}
+.result{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+}
+.message{
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+@media screen and (min-width:768px) {
+    .imc_container{
+        display: grid;
+        grid-template-columns: 1fr auto auto 1fr;
+    }
+    .title, .result, .message{
+        grid-column:1/-1;
+    }
+    .imc-form{
+        display: grid;
+        grid-column:2/-2;
+    }
+    .imc-group:nth-child(1){
+        grid-column:1/2;
+        grid-row: 1;
+    }
+    .imc-group:nth-child(2){
+        grid-column:2/3;
+        grid-row: 1;
+    }
+    .btn{
+        grid-column:1/3;
+    }
+    .imc-group input{
+        width: clamp(250px, 35vw, 330px);
+    }
+}
